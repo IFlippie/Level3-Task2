@@ -1,11 +1,11 @@
-package com.iflippie.level3_task2
+package com.iflippie.level3_task2.ui
 
-import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.browser.customtabs.CustomTabsIntent
 import androidx.recyclerview.widget.RecyclerView
+import com.iflippie.level3_task2.R
+import com.iflippie.level3_task2.model.Websites
 import kotlinx.android.synthetic.main.item_link.view.*
 
 class WebsitesAdapter(private val allLinks : List<Websites>, val clickListener: (Websites) -> Unit) :
@@ -29,7 +29,9 @@ class WebsitesAdapter(private val allLinks : List<Websites>, val clickListener: 
             parent,
             false
         )
-        return WebsitesViewHolder(view)
+        return WebsitesViewHolder(
+            view
+        )
     }
 
     /**

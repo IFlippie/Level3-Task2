@@ -1,4 +1,4 @@
-package com.iflippie.level3_task2
+package com.iflippie.level3_task2.ui
 
 import android.annotation.SuppressLint
 import android.app.Activity
@@ -10,6 +10,8 @@ import android.view.MenuItem
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.iflippie.level3_task2.R
+import com.iflippie.level3_task2.model.Websites
 
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
@@ -18,7 +20,9 @@ const val ADD_WEBSITE_REQUEST_CODE = 100
 class MainActivity : AppCompatActivity() {
 
     private val arrayWebsites = arrayListOf<Websites>()
-    private val websiteAdapter = WebsitesAdapter(arrayWebsites,{ plsWork: Websites -> itemClicked(plsWork) })
+    private val websiteAdapter = WebsitesAdapter(
+        arrayWebsites,
+        { plsWork: Websites -> itemClicked(plsWork) })
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,14 +40,20 @@ class MainActivity : AppCompatActivity() {
         rvWebsites.adapter = websiteAdapter
 
         for (i in Websites.ALL_LINKS.indices) {
-            arrayWebsites.add(Websites(Websites.ALL_LINKS[i]))
+            arrayWebsites.add(
+                Websites(
+                    Websites.ALL_LINKS[i]
+                )
+            )
         }
         websiteAdapter.notifyDataSetChanged()
     }
 
     private fun startAddActivity() {
         val intent = Intent(this, AddActivity::class.java)
-        startActivityForResult(intent, ADD_WEBSITE_REQUEST_CODE)
+        startActivityForResult(intent,
+            ADD_WEBSITE_REQUEST_CODE
+        )
     }
 
     @SuppressLint("MissingSuperCall")

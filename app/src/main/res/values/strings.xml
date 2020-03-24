@@ -2,4 +2,6 @@
     <string name="app_name">Level3-Task2</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_add">AddActivity</string>
+    <string name="toast_Message">The link cannot be empty</string>
+    <string name="insert_link">insert Link</string>
 </resources>

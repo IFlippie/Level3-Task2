@@ -1,4 +1,4 @@
-package com.iflippie.level3_task2
+package com.iflippie.level3_task2.ui
 
 import android.app.Activity
 import android.content.Intent
@@ -7,6 +7,8 @@ import android.os.Bundle
 import android.widget.Toast
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
+import com.iflippie.level3_task2.R
+import com.iflippie.level3_task2.model.Websites
 
 import kotlinx.android.synthetic.main.activity_add.*
 import kotlinx.android.synthetic.main.content_add.*
@@ -35,13 +37,14 @@ class AddActivity : AppCompatActivity() {
     private fun onSaveClick() {
         if (etLink.text.toString().isNotBlank()) {
             val link = Websites(
-                Uri.parse(etLink.text.toString()))
+                Uri.parse(etLink.text.toString())
+            )
             val resultIntent = Intent()
             resultIntent.putExtra(EXTRA_LINK, link)
             setResult(Activity.RESULT_OK, resultIntent)
             finish()
         } else {
-            Toast.makeText(this,"The link cannot be empty"
+            Toast.makeText(this,getString(R.string.toast_Message)
                 , Toast.LENGTH_SHORT).show()
         }
     }
